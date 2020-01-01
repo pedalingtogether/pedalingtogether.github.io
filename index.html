@@ -10,6 +10,7 @@ Photos: https://unsplash.com
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link rel='icon' href='images/favicon.ico' type='image/x-icon'/ >
+		<script src="//script.sheetsu.com/"></script>
 	</head>
 	<body class="is-preload">
 
@@ -25,6 +26,9 @@ Photos: https://unsplash.com
 									<h1 class="major">Welcome to<br />
 									Pedaling Together</h1>
 									<p>We are <strong>Pedaling Together</strong>, a non-profit dedicated to helping homeless Arizonan's receive much needed transportation.</p>
+									<span><strong>Bikes donated thus far: <span id="myText"></span>!</strong></span>
+									<br>
+									<!-- https://sheetsu.com/apis/v1.0su/8a8f8c4223b2 -->
 									<ul class="actions">
 										<li><a href="#first" class="button primary color1 circle icon solid fa-angle-right">Next</a></li>
 									</ul>
@@ -144,7 +148,13 @@ Photos: https://unsplash.com
 					</div>
 
 			</div>
-
+			<script>
+				var sheets_dict={};
+		    	function successFunc(data) {
+		    		document.getElementById("myText").innerHTML = data[0]["bikes_donated"];
+		    	}
+		    	Sheetsu.read("https://sheetsu.com/apis/v1.0su/8a8f8c4223b2", {}, successFunc);
+		 	</script>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
